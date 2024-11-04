@@ -3,8 +3,9 @@ import './Map.css';
 import FetchLatLng from './FetchLatLng';
 import { Navigate } from "react-router-dom"; // Import Navigate from react-router-dom
 
-import 'react-toastify/dist/ReactToastify.css'; 
-import './toastStyles.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const mapsApiKey = process.env.REACT_APP_MAPS_API_KEY;
 
@@ -133,7 +134,7 @@ const Map = () => {
                     map.setCenter(userLocation);
                 });
             } else {
-                alert("Geolocation is not supported by this browser.");
+                toast.error("Geolocation is not supported by this browser.");
             }
 
             const renderer = new window.google.maps.DirectionsRenderer();
@@ -146,7 +147,7 @@ const Map = () => {
             autocomplete.addListener("place_changed", () => {
                 const place = autocomplete.getPlace();
                 if (!place.geometry) {
-                    alert("No details available for the selected location.");
+                    toast.error("No details available for the selected location.");
                     return;
                 }
 
@@ -200,7 +201,7 @@ const Map = () => {
     const searchNearbyPlaces = () => {
         const searchInput = document.getElementById("pac-input").value;
         if (!searchInput) {
-            alert("Please enter a location to search.");
+            toast.error("Please enter a location to search.");
             return;
         }
     
@@ -224,7 +225,7 @@ const Map = () => {
                 // Use filtered places and apply additional filters (time, date, access type) if needed
                 filterPlacesByCriteria(filteredPlaces, searchLocation);
             } else {
-                alert("Could not find location: " + status);
+                toast.error("Could not find location: " + status);
             }
         });
     };
@@ -311,7 +312,7 @@ const Map = () => {
 
      const getDirections = () => {
     if (!directionsRenderer || !userMarker || !selectedPlace) {
-        alert("Ensure a place is selected and user location is detected.");
+        toast.info("Ensure a place is selected and user location is detected.");
         return;
     }
 
@@ -348,7 +349,7 @@ const Map = () => {
             setDirectionsVisible(true);
 
         } else {
-            alert("Directions request failed due to " + status);
+            toast.error("Directions request failed due to " + status);
         }
     });
 };
@@ -370,6 +371,8 @@ const Map = () => {
 
     return (
         <div style={{ position: "relative" }}>
+        <ToastContainer />
+
         <div className={`map ${isMapShrunk ? 'shrunk' : ''}`} ref={mapRef}></div>
         <div className="map-search">
         <h5>Find your perfect parking spot on UrbanDepot </h5>

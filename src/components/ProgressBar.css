@@ -1,83 +1,3 @@
-.progress-bar-container {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  display: flex;
-  height: 15vh;
-  flex-direction: column;
-  align-items: center;
-  background-color: #f0f0f0;
-  padding: 10px;
-  gap: 2vh;
-  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.road {
-  position: relative;
-  width: 90%;
-  height: 8px; /* Adjust height for the road */
-  background: #868484; /* Road color */
-  border-radius: 5px;
-  margin-bottom: 15px;
-  overflow: visible;
-}
-
-.progress {
-  height: 100%;
-background-color: black;
-border-radius: 5px 0 0 5px;
-transition: width 0.3s ease;
-/* z-index: 1; */
-}
-
-/* Style for the car GIF */
-.car-gif {
-  position: absolute;
-  bottom: -4vh;  /* Position above the progress bar */
-  width: 25vh;   
-  height: 30vh;/* Adjust size */
-  height: auto;
-  transform: rotateY(180deg); /* Flip the car vertically */
-  z-index: 10;  /* Ensure it’s above the progress bar */
-  transition: left 0.3s ease; /* Smooth movement */
-}
-
-
-.button-container {
-  display: flex;
-  gap: 20px;
-}
-
-.prev-button,
-.next-button {
-  padding: 8px 16px;
-  font-size: 16px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-
-.prev-button:disabled {
-  background-color: #ccc;
-  cursor: not-allowed;
-}
-
-.prev-button:hover,
-.next-button:hover {
-  background-color: #0056b3;
-}
-
-.parking-spot-container {
-  position: absolute;
-  bottom: -15px; /* Adjust as needed */
-  left: calc(100% - 10px); /* Align with the end of the progress bar */
-  display: flex;
-  flex-direction: column;
-  align-items: right;
-}
 
 .parking-sign {
   font-size: 18px;
@@ -103,5 +23,83 @@ transition: width 0.3s ease;
   left: calc(100% - 30px); /* Position at the end of the road */
   box-shadow: 10px 3px 6px rgba(0, 0, 0, 0.3); /* Shadow for depth */
   transform: perspective(400vh) rotateX(80deg) rotateY(0deg); /* Flatten on Z-axis */
-  z-index: 1;
+  z-index: 99999;
 }
+.progress-bar-container {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  height: 16vh;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 10px;
+  
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.2);
+  z-index: 99999; /* Bring the entire component to the front */
+}
+
+.road {
+  position: relative;
+  width: 90%;
+  height: 8px;
+  background: #868484;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  overflow: visible;
+  z-index: 99999; /* Ensures road stays in front */
+}
+
+.progress {
+  height: 100%;
+  background-color: black;
+  border-radius: 5px 0 0 5px;
+  transition: width 0.3s ease;
+  z-index: 99999; /* Ensures progress bar stays in front */
+}
+
+/* Style for the car GIF */
+.car-gif {
+  position: absolute;
+  bottom: -3vh;
+  width: 20vh;
+  height: auto;
+  transform: rotateY(180deg);
+  z-index: 99999; /* Ensures car GIF stays in front */
+  
+  transition: left 0.8s ease-out;
+}
+
+.button-container {
+  display: flex;
+  justify-content: end; /* Place buttons at ends */
+  width: 20px; /* Make the container take up full width */
+  padding: 0px;
+}
+
+.parking-spot-container {
+  position: absolute;
+  bottom: -15px;
+  left: calc(100% - 10px);
+  display: flex;
+  flex-direction: column;
+  align-items: right;
+  z-index: 99999; /* Ensures parking spot stays in front */
+}
+
+.parking-spot {
+  position: absolute;
+  bottom: -5px;
+  width: 1000px;
+  height: 40px;
+  background-color: #f8e28c;
+  border: 2px solid #000;
+  border-radius: 5px;
+  left: calc(100% - 30px);
+  box-shadow: 10px 3px 6px rgba(0, 0, 0, 0.3);
+  transform: perspective(400vh) rotateX(80deg) rotateY(0deg);
+  z-index: 99999;
+}
+
+

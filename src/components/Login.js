@@ -12,6 +12,9 @@ import {
 import { useNavigate } from "react-router-dom";
 import styles from './Login.css';
 import 'boxicons/css/boxicons.min.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -40,6 +43,8 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     if (email === adminEmail && password === adminPassword) {
+      toast.success("Admin login successful!");
+
       alert("Admin login successful!");
       navigate("/adminpage");  // Navigate to the admin page
       return;
@@ -51,10 +56,11 @@ const Login = () => {
         alert("Login successful!");
         navigate("/map");
       } else {
-        alert("Please verify your email before logging in.");
+        toast.warn("Please verify your email before logging in.");
       }
     } catch (error) {
-      alert(`Error: ${error.message}`);
+      toast.error(`Error: ${error.message}`);
+
     }
   };
 
@@ -62,16 +68,18 @@ const Login = () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
       alert("Google login successful!");
+      toast.success("Google login successful!");
+
       navigate("/map");
     } catch (error) {
-      alert(`Google Login Error: ${error.message}`);
+      toast.error(`Google Login Error: ${error.message}`);
     }
   };
 
   const handleSignUp = async (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      alert("Passwords do not match!");
+      toast.error("Passwords do not match!");
       return;
     }
 
@@ -79,10 +87,10 @@ const Login = () => {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
       await sendEmailVerification(user);
-      alert("Signup successful! Please check your email for verification.");
+      toast.success("Signup successful! Please check your email for verification.");
       navigate("/login");
     } catch (error) {
-      alert(`Error: ${error.message}`);
+      toast.error(`Error: ${error.message}`);
     }
   };
 
@@ -90,10 +98,10 @@ const Login = () => {
     e.preventDefault();
     try {
       await sendPasswordResetEmail(auth, email);
-      alert("Password reset email sent! Check your inbox.");
+      toast.info("Password reset email sent! Check your inbox.");
       setShowForgotPassword(false);
     } catch (error) {
-      alert(`Error: ${error.message}`);
+      toast.error(`Error: ${error.message}`);
     }
   };
 
@@ -103,6 +111,8 @@ const Login = () => {
 
   return (
     <div className="login-page">
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} />
+
       <div className={`form-container ${isSignUp ? "show-signup" : "show-login"}`}>
         <div className="col col-1">
           <div className="image-layer">

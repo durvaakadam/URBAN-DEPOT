@@ -9,8 +9,8 @@
 
 /* body */
 .login-page {
+    position: relative; /* Set position to relative */
     background-image: url("./images/graphic.png");
-    background-color: rgb(10, 9, 9);
     background-position: center;
     background-size: cover;
     background-attachment: fixed;
@@ -30,6 +30,8 @@
     border: 3px solid rgba(255, 255, 255, 0.3);
     border-radius: 30px;
     backdrop-filter: blur(20px);
+    z-index: 2; /* Keep it above the overlay */
+
 }
 
 .col-1 {

@@ -19,7 +19,7 @@
     position: absolute;
     top: 5vh;
     background: white;
-    padding: 15px; 
+    padding: 20px; 
     border: 1px solid #ccc;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -27,7 +27,7 @@
     width: 55vh; 
     display: flex;
     flex-direction: column; /* Stack main containers vertically */
-    gap: 8px; 
+    gap: 10px; 
     overflow: visible;
     margin-left: 70px;
 }
