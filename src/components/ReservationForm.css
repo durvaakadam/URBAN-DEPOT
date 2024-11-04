@@ -449,7 +449,6 @@ gap: 5vh;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
   width: 100vh;
   height: 60vh;
   margin-top: -20vh;
@@ -460,11 +459,7 @@ gap: 5vh;
  
 }
 
-.reserve-step4-file-upload-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+
 
 .reserve-step4-custom-file-upload {
   display: flex;
@@ -483,7 +478,8 @@ gap: 5vh;
 }
 .upload-photos-title {
     font-size: 1.5rem; /* Adjust title size as needed */
-    margin-bottom: 1rem; /* Space below the title */
+    margin-bottom: 24rem; 
+    margin-left: 18px;/* Space below the title */
 }
 
 .reserve-step4-custom-file-upload:hover {
@@ -537,6 +533,7 @@ gap: 5vh;
   color: #333;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  margin-left: 660px;
 }
 
 .reserve-step5-text {

@@ -70,17 +70,6 @@ const RegisterPlace = () => {
     }
   };
     
-  useEffect(() => {
-    // Display toast greeting when component mounts
-    toast.success(`Hi, ${userName}!`, {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
-  }, [userName]);
 
 
   useEffect(() => {
@@ -399,7 +388,7 @@ return (
   </div>
       <div className="register-place-container">
         {/* <h2>Place Registration Form</h2> */}
-        {userName && <h3>HI, welcome {userName}</h3>}
+        {userName && <h3>Hi, welcome {userName}</h3>}
 
         <div className="slider">
           <form onSubmit={handleSubmit} className="register-place-form">

@@ -8,7 +8,7 @@ import Tesseract from 'tesseract.js'; // Import Tesseract.js
 import './ReservationForm.css';
 import { FaCar, FaMotorcycle, FaTruck, FaBicycle } from "react-icons/fa";
 import ProgressBar from './ProgressBar';
-import FileUpload from './FileUpload'; // Adjust the path according to your project structure
+import FileUploadRes from './FileUploadRes'; // Adjust the path according to your project structure
 import Loading from './Loading'; // Import the Loading component
 
 import { ToastContainer, toast } from 'react-toastify';
@@ -323,7 +323,7 @@ if (formData.vehicleType.toLowerCase() === 'car') {
       });
 
       if (conflict) {
-        setErrorMessage('This time slot is already booked. Please choose a different time.');
+        setErrorMessage("This time slot is already booked. Please choose a different time.");
         setIsLoading(false); // Reset loading state
 
         return; 
@@ -582,7 +582,7 @@ if (formData.vehicleType.toLowerCase() === 'car') {
                   <div className='reserve-step4-form'>
                   <h2 class="upload-photos-title">Upload Photos</h2>
                   <div className="reserve-step4-file-upload-container">
-                          <FileUpload 
+                          <FileUploadRes
                               onFileChange={(file) => handleFileChange(file, 'licensePhoto')} // Triggering file change for license photo
                               label="Upload License Photo"
                               required
@@ -590,14 +590,13 @@ if (formData.vehicleType.toLowerCase() === 'car') {
                           />
                       </div>
                       <div className="reserve-step4-file-upload-container">
-                          <FileUpload 
+                          <FileUploadRes
                               onFileChange={(file) => handleFileChange(file, 'platePhoto')} // Triggering file change for plate photo
                               label="Upload Plate Photo"
                               required
                               id="platePhoto"
                           />
                       </div>
-                      <p>{errorMessage}</p> {/* Displaying error message if necessary */}
                   </div>
               </div>
           );

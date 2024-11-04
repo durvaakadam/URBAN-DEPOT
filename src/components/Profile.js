@@ -290,8 +290,6 @@ const Profile = () => {
         )}
     </div>
 )}
-
-
 {activeTab === 'places' && (
     <div className="section">
         <h3 className="section-heading">Registered Places</h3>
@@ -302,8 +300,14 @@ const Profile = () => {
                     <div key={place.id} className="card">
                         <h4><FaMapMarkerAlt /> {place.placeName}</h4> {/* Display Place Name as Title */}
                         <p><strong>Address:</strong> {place.address}</p>
-                        <p><strong>Start Date:</strong> {place.dateRange.from}</p> {/* Start Date */}
-                        <p><strong>End Date:</strong> {place.dateRange.to}</p>   {/* End Date */}
+                        <p>
+                            <strong>Start Date:</strong> 
+                            {place.dateRange && place.dateRange.from ? place.dateRange.from : 'N/A'}
+                        </p> {/* Start Date */}
+                        <p>
+                            <strong>End Date:</strong> 
+                            {place.dateRange && place.dateRange.to ? place.dateRange.to : 'N/A'}
+                        </p> {/* End Date */}
                         <p><strong>Access Type:</strong> {place.accessType}</p> {/* Display Access Type */}
                         <button
                             className="delete-button"
