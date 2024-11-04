@@ -32,7 +32,7 @@
     "web-vitals": "^4.2.4"
   },
   "resolutions": {
-  "pdfjs-dist": "^4.8.69"
+"pdfjs-dist": "^3.0.279"
 },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.18.6"
