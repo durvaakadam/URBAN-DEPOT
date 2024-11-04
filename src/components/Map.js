@@ -3,6 +3,8 @@ import './Map.css';
 import FetchLatLng from './FetchLatLng';
 import { Navigate } from "react-router-dom"; // Import Navigate from react-router-dom
 
+import 'react-toastify/dist/ReactToastify.css'; 
+import './toastStyles.css';
 
 const mapsApiKey = process.env.REACT_APP_MAPS_API_KEY;
 

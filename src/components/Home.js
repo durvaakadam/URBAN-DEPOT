@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { auth } from "../firebaseConfig"; 
 import './Home.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
-import TransitionSection from './TransitionSection';
 import CardSlider from './CardSlider';
 
 const Home = () => {
@@ -125,7 +124,6 @@ const Home = () => {
 
         <div className="headicon"><h2>Hear from Our Happy Users</h2></div>
         <CardSlider />
-        <TransitionSection />
       </div>
 
       <footer className="new_footer_area bg_color">

@@ -112,10 +112,10 @@ const Login = () => {
         </div>
         <div className="col col-2">
           <div className="btn-box">
-            <button className={`btn ${!isSignUp ? "btn-1" : ""}`} onClick={() => setIsSignUp(false)}>
+            <button className={`btn1 ${!isSignUp ? "btn-1" : ""}`} onClick={() => setIsSignUp(false)}>
               LOG IN
             </button>
-            <button className={`btn ${isSignUp ? "btn-2" : ""}`} onClick={() => setIsSignUp(true)}>
+            <button className={`btn1 ${isSignUp ? "btn-2" : ""}`} onClick={() => setIsSignUp(true)}>
               SIGN UP
             </button>
           </div>

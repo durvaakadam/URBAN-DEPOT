@@ -6,6 +6,8 @@ import jsPDF from 'jspdf';
 import html2canvas from 'html2canvas';
 import emailjs from 'emailjs-com';
 import { QRCodeCanvas } from 'qrcode.react'; // Update import
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Ticket = ({ userEmail }) => {
   const location = useLocation();
@@ -76,7 +78,7 @@ const Ticket = ({ userEmail }) => {
       );
 
       console.log('Email sent successfully!', response.status, response.text);
-      alert("Email sent successfully!");
+      toast.success("Email sent successfully!");
     } catch (err) {
       console.error('Failed to send email:', err);
       alert("Failed to send email.");
@@ -85,6 +87,8 @@ const Ticket = ({ userEmail }) => {
 
   return (
     <div className="ticket-wrapper">
+      <ToastContainer /> {/* Toast Container added for notifications */}
+
       <div
         className="ticket-container"
         style={{ backgroundImage: `url(${ticketImage})` }}

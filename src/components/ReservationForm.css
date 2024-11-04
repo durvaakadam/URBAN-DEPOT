@@ -544,18 +544,19 @@ gap: 5vh;
   color: #666;
   font-weight: 400;
 }
-
 /* Container for personal and booking info */
 .review-container {
   display: flex;
+  align-items: flex-start;
   justify-content: space-between;
   width: 100%;
-  margin-left: 400px;
-  max-width: 880px; /* Restrict max width */
+  margin-left: 50vh;
+  height: 47vh;
+  max-width: 800px; /* Restrict max width */
   background-color: #ffffff; /* White background */
   border: 1px solid #ddd; /* Light border */
   border-radius: 8px; /* Rounded corners */
-  padding: 1.3rem; /* Add padding */
+  padding-top: 2vh; /* Add padding */
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
@@ -565,20 +566,19 @@ gap: 5vh;
   padding: 1rem; /* Add padding */
 }
 
-.booking-info {
-  background-color: #f8f9fa; /* Light grey background for booking info */
-}
+
 
 /* Divider */
 .reserve-step5-divider {
-  width: 1px; /* Thin divider */
   background-color: #ddd;
-  margin: 0 1rem; /* Space around the divider */
+  height: 35vh;
+  border-left: 1px solid #ccc;
+  margin: 0 5px;
 }
 
 /* Title styling for each section */
 .card-title {
-  font-size: 1.5rem; /* Increased title size */
+  font-size: 1.2rem; /* Increased title size */
   color: #333;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -617,12 +617,12 @@ gap: 5vh;
   font-weight: 600;
   border: none;
   border-radius: 8px;
-  padding: 0.75rem 2rem; /* Increased padding */
+  padding: 0.5rem 1.5rem; /* Increased padding */
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15); /* Subtle shadow */
   display: block; /* Centers the button */
-  margin: 2rem auto; /* Center the button */
+  margin: -3.5rem auto; /* Center the button */
 }
 
 /* Hover and active states */
@@ -632,6 +632,4 @@ gap: 5vh;
 
 .reserve-page-submit-button:active {
   transform: scale(0.98); /* Slightly scales down on click */
-}
-
-
+} 

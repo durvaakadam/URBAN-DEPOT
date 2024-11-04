@@ -5,6 +5,8 @@ import db from '../firebaseConfig';
 import './RazorpayPayment.css';
 import emailjs from 'emailjs-com';
 import Loading from './Loading';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const razorpayApiKey = process.env.REACT_APP_RAZORPAY_API_KEY;
 
@@ -157,7 +159,8 @@ const RazorpayPayment = () => {
         'WfUPqJH0cRzftZSDI'
       );
       console.log('Email sent successfully!', response.status, response.text);
-      alert('NOTIFIED THE OWNER SUCCESSFULLY!');
+      toast.success("NOTIFIED THE OWNER SUCCESSFULLY!");
+
     } catch (error) {
       console.error('Error sending email:', error);
       alert('Error sending email. Please try again.');
@@ -166,6 +169,8 @@ const RazorpayPayment = () => {
 
   return (
     <div className="rzp-container">
+      <ToastContainer /> {/* Toast Container added for notifications */}
+
       {loading ? (
         <Loading />
       ) : (

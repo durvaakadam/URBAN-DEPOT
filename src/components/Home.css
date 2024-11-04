@@ -269,7 +269,6 @@ body {
   font-weight: bold;
   font-size: 56px;
   padding-left: 0;
-  padding-bottom: 30px;
   margin-top:237px;
   transition: color 0.3s ease;
 }
@@ -468,9 +467,9 @@ margin-right: 50px; /* Add right margin for spacing */
 }
 .parking-lines {
   position: absolute; /* Positioning to overlay in the same container */
-  top: -40%; /* Align with the bottom of the hero-image */
+  top: -33%; /* Align with the bottom of the hero-image */
   /* left: 0; Align to the left of the hero-image */
-  width: 180%; /* Adjust as needed to fit */
+  width: 190%; /* Adjust as needed to fit */
   height: auto; /* Maintain aspect ratio */
   z-index: 1; /* Place behind the car image */
   right: 15%;
@@ -480,6 +479,7 @@ align-content: center;
 padding-top: 50px;
 padding-bottom: 30px;
 font-size: 30px;
+background-color: white;
 }
 .icon-section {
 display: flex;
@@ -531,13 +531,15 @@ font-size: 0.9rem;
 color: #fffdfd;
 }
 .new_footer_area {
-background: #ffffff;
+background: #7a1a32;
+
 }
 
 .new_footer_top {
 padding: 0px 0px 80px;
 position: relative;
 overflow-x: hidden;
+/* margin-top: 0; */
 }
 
 .row {
