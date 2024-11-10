@@ -96,7 +96,7 @@ button:hover {
 }
 
 .button-container button:last-child {
-    margin-right: 0;
+    margin-right: -170px;
 }
 
 .error-message {
