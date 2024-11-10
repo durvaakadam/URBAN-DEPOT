@@ -40,7 +40,6 @@ const Ticket = ({ userEmail }) => {
     const canvas = await html2canvas(input, { scale: 2 }); // Higher scale for better resolution
     const data = canvas.toDataURL('image/png');
 
-    // Calculate the PDF dimensions based on the canvas size
     const pdfWidth = 400; // A4 width in mm
     const pdfHeight = (canvas.height * pdfWidth) / canvas.width; // Scale height accordingly
 
