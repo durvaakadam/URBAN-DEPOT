@@ -26,7 +26,7 @@ const SignUp = () => {
       const user = userCredential.user;
 
       await setDoc(doc(db, "users", email), {
-        uid: user.uid,  // Store the user UID
+        uid: user.uid,  
         email: user.email, // Initialize with an empty array
       });
 
