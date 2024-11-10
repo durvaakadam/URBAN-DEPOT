@@ -27,7 +27,7 @@ const SignUp = () => {
 
       await setDoc(doc(db, "users", email), {
         uid: user.uid,  
-        email: user.email, // Initialize with an empty array
+        email: user.email, 
       });
 
       await sendEmailVerification(user);
