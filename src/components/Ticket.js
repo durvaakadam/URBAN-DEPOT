@@ -40,12 +40,11 @@ const Ticket = ({ userEmail }) => {
     const canvas = await html2canvas(input, { scale: 2 }); // Higher scale for better resolution
     const data = canvas.toDataURL('image/png');
 
-    const pdfWidth = 400; // A4 width in mm
+    const pdfWidth = 400; 
     const pdfHeight = (canvas.height * pdfWidth) / canvas.width; // Scale height accordingly
 
     const pdf = new jsPDF('l', 'mm', [pdfWidth, pdfHeight]);
 
-    // Add image to the PDF
     pdf.addImage(data, 'PNG', 0, 0, pdfWidth, pdfHeight);
     pdf.save('ticket.pdf');
 };
