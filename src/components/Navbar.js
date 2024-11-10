@@ -35,7 +35,10 @@ const Navbar = ({ userEmail }) => {
   return (
     <nav className="urban-navbar">
       <div className="urban-navbar-logo">
-        <img src={urbanLogo} alt="Urban Depot Logo" className="urban-logo" />
+        {/* Wrap the logo in Link to make it clickable */}
+        <Link to="/map">
+          <img src={urbanLogo} alt="Urban Depot Logo" className="urban-logo" />
+        </Link>
         <h1 className="urban-navbar-title"><strong>URBANDEPOT</strong></h1>
       </div>
       <div className="urban-navbar-links">
