@@ -125,7 +125,7 @@ const Ticket = ({ userEmail }) => {
       </div>
   
       {/* Button Container placed outside ticket-container */}
-      <div className="button-container">
+      <div className="button-ticket">
         <button className="ticket-button" onClick={downloadPDF}>
           Download Ticket PDF
         </button>

@@ -215,6 +215,7 @@ const validateLicense = () => {
     const namesMatch = cleanedExtractedName.startsWith(cleanedUserName);
 
     if (!namesMatch) {
+        console.log("hi");
         console.error("Names do not match:", cleanedExtractedName, "!==", cleanedUserName);
         toast.error("Names don’t match. Upload your own license");
 
