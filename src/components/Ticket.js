@@ -20,6 +20,7 @@ const Ticket = ({ userEmail }) => {
   } = location.state || {};
 
   // Define EmailJS variables
+  //hi
   const emailJsServiceId = "service_47vx99l";
   const emailJsTemplateId = "template_ozillze";
   const emailJsUserId = "ekSsPejJYK6BBqm2F";
