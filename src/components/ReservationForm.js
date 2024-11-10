@@ -192,41 +192,61 @@ const runOCR = async (file) => {
     }
 };
 
-// Validate the name extracted from the license against the user's name
 const validateLicense = () => {
-    const nameMatch = ocrText.match(/name\s*:\s*([a-zA-Z\s]+)/i);
-    const normalizedExtractedName = nameMatch && nameMatch[1]
-        ? nameMatch[1].replace(/\s+/g, ' ').trim().toUpperCase() // Normalize extracted name
-        : '';
+  console.log("OCR Text:", ocrText); // Log the entire OCR text
 
-    const normalizedUserName = formData.name
-        .replace(/\s+/g, ' ') // Replace multiple spaces with a single space
-        .trim() // Remove leading/trailing whitespace
-        .toUpperCase(); // Convert to uppercase
+  // Extract name from OCR text using a modified regex to allow variations
+  const nameMatch = ocrText.match(/name\s*[:\-]?\s*([a-zA-Z\s]+)/i);
+  const normalizedExtractedName = nameMatch && nameMatch[1]
+      ? nameMatch[1].replace(/\s+/g, ' ').trim().toUpperCase() // Normalize extracted name
+      : '';
 
-    // Clean names to remove non-ASCII characters
-    const cleanedExtractedName = normalizedExtractedName.replace(/[^\x20-\x7E]/g, '');
-    const cleanedUserName = normalizedUserName.replace(/[^\x20-\x7E]/g, '');
+  console.log("Extracted Name (before cleaning):", normalizedExtractedName); // Log extracted name after normalization
 
-    console.log("Extracted Name:", cleanedExtractedName);
-    console.log("User Name:", cleanedUserName);
+  // Normalize and clean the user-provided name
+  const normalizedUserName = formData.name
+      .replace(/\s+/g, ' ') // Replace multiple spaces with a single space
+      .trim() // Remove leading/trailing whitespace
+      .toUpperCase(); // Convert to uppercase
 
-    // Compare while allowing for trailing characters
-    const namesMatch = cleanedExtractedName.startsWith(cleanedUserName);
+  console.log("User Name (before cleaning):", normalizedUserName); // Log user name after normalization
 
-    if (!namesMatch) {
-        console.log("hi");
-        console.error("Names do not match:", cleanedExtractedName, "!==", cleanedUserName);
-        toast.error("Names don’t match. Upload your own license");
+  // Additional cleanup to remove any extra trailing characters after the last word in the user's name
+  const extractedNameWords = normalizedExtractedName.split(" ");
+  const userNameWords = normalizedUserName.split(" ");
+  const truncatedExtractedName = extractedNameWords.slice(0, userNameWords.length).join(" ");
 
-        setLicenseValidationMessage('The name on the license does not match the provided name. Please check and try again.');
-    } else {
-        console.log("Names match!");
-        setLicenseValidationMessage(''); // Clear message if names match
-    }
+  console.log("Truncated Extracted Name:", truncatedExtractedName); // Log truncated name
 
-    return namesMatch;
+  // Clean names to remove non-ASCII characters
+  const cleanedExtractedName = truncatedExtractedName.replace(/[^\x20-\x7E]/g, '');
+  const cleanedUserName = normalizedUserName.replace(/[^\x20-\x7E]/g, '');
+
+  console.log("Cleaned Extracted Name:", cleanedExtractedName); // Log cleaned extracted name
+  console.log("Cleaned User Name:", cleanedUserName); // Log cleaned user name
+
+  // Additional debugging: check character codes to detect invisible characters
+  console.log("Extracted Name Characters:", [...cleanedExtractedName].map(c => c.charCodeAt(0)));
+  console.log("User Name Characters:", [...cleanedUserName].map(c => c.charCodeAt(0)));
+
+  // Compare names for exact match
+  const namesMatch = cleanedExtractedName === cleanedUserName;
+
+  if (!namesMatch) {
+      console.log("Names do not match.");
+      console.error("Names do not match:", cleanedExtractedName, "!==", cleanedUserName);
+
+      setLicenseValidationMessage('The name on the license does not match the provided name. Please check and try again.');
+  } else {
+      console.log("Names match!");
+      toast.success("License validation successfull")
+      setLicenseValidationMessage(''); // Clear message if names match
+  }
+
+  return namesMatch;
 };
+
+
 
 // Check if the uploaded document is a valid license
 const isValidLicense = (text) => {
