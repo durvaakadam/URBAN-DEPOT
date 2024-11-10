@@ -41,7 +41,7 @@ const Ticket = ({ userEmail }) => {
     const data = canvas.toDataURL('image/png');
 
     const pdfWidth = 400; 
-    const pdfHeight = (canvas.height * pdfWidth) / canvas.width; // Scale height accordingly
+    const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
 
     const pdf = new jsPDF('l', 'mm', [pdfWidth, pdfHeight]);
 
