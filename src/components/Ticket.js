@@ -84,7 +84,7 @@ const Ticket = ({ userEmail }) => {
 
   return (
     <div className="ticket-wrapper">
-      <ToastContainer /> {/* Toast Container added for notifications */}
+      <ToastContainer /> 
 
       <div
         className="ticket-container"
