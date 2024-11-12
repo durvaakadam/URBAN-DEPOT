@@ -5,6 +5,7 @@ import { auth } from "../firebaseConfig";
 import './Navbar.css';
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import urbanLogo from './images/urbanlogo1.png';
+
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
