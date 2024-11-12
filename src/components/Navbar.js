@@ -9,6 +9,7 @@ import urbanLogo from './images/urbanlogo1.png';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+
 const Navbar = ({ userEmail }) => {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
