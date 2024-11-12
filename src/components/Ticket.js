@@ -114,7 +114,6 @@ const Ticket = ({ userEmail }) => {
           />
         </div>
   
-        {/* Separate Total Paid section */}
         <div className="total-paid">
     <p className="ticket-detail" style={{ fontSize: '1.8rem', fontWeight: 'bold' }}>
       <strong></strong> ₹{totalAmount}
