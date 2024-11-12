@@ -73,6 +73,7 @@ const Ticket = ({ userEmail }) => {
         templateParams,
         emailJsUserId
       );
+      
 
       console.log('Email sent successfully!', response.status, response.text);
       toast.success("Email sent successfully!");
