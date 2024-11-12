@@ -85,6 +85,7 @@ const Ticket = ({ userEmail }) => {
   return (
     <div className="ticket-wrapper">
       <ToastContainer /> 
+      {/* this is the toast */}
 
       <div
         className="ticket-container"
