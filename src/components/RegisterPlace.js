@@ -565,7 +565,7 @@ return (
                     {useLiveLocation ? 'Use Custom Location' : 'Use Live Location'}
                   </button>
                 </div>
-                <div ref={mapRef} className="map" style={{ width: '100%', height: '400px' }}></div>
+                <div ref={mapRef} className="map" style={{ width: '100%', height: '401px' }}></div>
                 <div className="button-container">
                   
                   <button type="submit">Submit</button>
