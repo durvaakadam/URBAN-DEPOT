@@ -131,9 +131,6 @@ const Ticket = ({ userEmail }) => {
       </div>
     </div>
   );
-  
-  
-  
 };
 
 export default Ticket;
