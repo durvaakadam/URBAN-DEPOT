@@ -120,8 +120,7 @@ const Ticket = ({ userEmail }) => {
     </p>
         </div>
       </div>
-  
-      {/* Button Container placed outside ticket-container */}
+
       <div className="button-ticket">
         <button className="ticket-button" onClick={downloadPDF}>
           Download Ticket PDF
