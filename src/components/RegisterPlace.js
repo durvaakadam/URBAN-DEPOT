@@ -70,18 +70,7 @@ const RegisterPlace = () => {
     }
   };
     
-  useEffect(() => {
-    // Display toast greeting when component mounts
-    toast.success(`Hi, ${userName}!`, {
-      position: "top-center",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-    });
-  }, [userName]);
-
+  
 
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -385,8 +374,8 @@ return (
     {currentStep === 5 && (
       <>
         <p className='stepNo'>Step 5</p>
-        <p className='head123'>Location Details</p>
-        <p className='explain'>Please provide the name and address of the place you wish to register. This helps us know where to reach out if needed.</p>
+        <p className='head123'>Security and Monitoring</p>
+        <p className='explain'>Let us Know more about your place to help us manage your space more effectively</p>
       </>
     )}
     {currentStep === 6 && (

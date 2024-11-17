@@ -47,12 +47,13 @@ const ReservationForm = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false); // Loading state
-
+  
   const queryParams = new URLSearchParams(location.search);
   const addressFromURL = queryParams.get('address') || '';
   const placeFromURL = queryParams.get('id') || '';
   const [ocrText, setOcrText] = useState('');
   const [step, setStep] = useState(1); // Track the current step
+  const [showAnimation, setShowAnimation] = useState(false);
   const [errorMessage, setErrorMessage] = useState(''); // State for error message
   const [licenseValidationMessage, setLicenseValidationMessage] = useState(''); // State for license validation message
   const [formData, setFormData] = useState({
@@ -249,6 +250,13 @@ const isValidLicense = (text) => {
     return isLicense;
 };
 
+  // Effect to handle animation on step change
+  useEffect(() => {
+    setShowAnimation(true); // Trigger animation by adding 'show' class
+    const timer = setTimeout(() => setShowAnimation(false), 500); // Match duration with CSS
+
+    return () => clearTimeout(timer); // Cleanup timer on re-render
+}, [step]); // Run this effect every time `step` changes
 
   const handleNextStep = () => {
     if (validateStep()) {
@@ -373,11 +381,13 @@ if (formData.vehicleType.toLowerCase() === 'car') {
   const renderStep = () => {
     {errorMessage && <div className="error-message">{errorMessage}</div>} {/* Error message display */}
     {licenseValidationMessage && <div className="license-validation-message">{licenseValidationMessage}</div>}
+    
     switch (step) {
       case 1:
         return (
           // step1-form
           <div className='reserve-step-1'>
+           <div className={`step-content ${showAnimation ? 'show' : ''}`}>
             <div className="reserve-step1-sidetext">
               <p id='step'>Step 1</p>
               <p id='reserve-step1-sidetext1'>Welcome!Let’s Get to Know You</p>
@@ -434,10 +444,12 @@ if (formData.vehicleType.toLowerCase() === 'car') {
               </div>
             </div>
           </div>
+          </div>
         );
       case 2:
         return (
           <div className="reserve-step2">
+            <div className={`step-content ${showAnimation ? 'show' : ''}`}>
             <div className="reserve-step2-sidetext">
               <p id='step'>Step 2</p>
               <p id='reserve-step2-sidetext1'>When Would You Like to Reserve?</p>
@@ -509,10 +521,12 @@ if (formData.vehicleType.toLowerCase() === 'car') {
 
           </div>
           </div>
+          </div>
         );
       case 3:
         return (
           <div className="reserve-step3">
+            <div className={`step-content ${showAnimation ? 'show' : ''}`}>
             <div className="reserve-step3-sidetext">
               <p id='step'>Step 3</p>
               <p id='reserve-step3-sidetext1'>Tell Us About Your Vehicle</p>
@@ -569,11 +583,13 @@ if (formData.vehicleType.toLowerCase() === 'car') {
               onChange={(e) => setFormData({ ...formData, licensePlate: e.target.value })}
               required
             /></div>
-          </div></div>
+          </div></div></div>
+          
         );
         case 4:
           return (
               <div className="reserve-step4">
+                <div className={`step-content ${showAnimation ? 'show' : ''}`}>
                   <div className="reserve-step3-sidetext">
                       <p id='step'>Step 4</p>
                       <p id='reserve-step3-sidetext1'>Verify with Photos</p>
@@ -582,15 +598,20 @@ if (formData.vehicleType.toLowerCase() === 'car') {
                   <div className='reserve-step4-form'>
                   <h2 class="upload-photos-title">Upload Photos</h2>
                   <div className="reserve-step4-file-upload-container">
-                          <FileUpload 
+                          <FileUpload className="reserve-step4-license-upload"
                               onFileChange={(file) => handleFileChange(file, 'licensePhoto')} // Triggering file change for license photo
                               label="Upload License Photo"
                               required
                               id="licensePhoto"
+                              style={{
+                                backgroundColor: '#f4c2c2',
+                                padding: '10px',
+                                border: '2px solid #d15b5b',
+                              }}
                           />
                       </div>
                       <div className="reserve-step4-file-upload-container">
-                          <FileUpload 
+                          <FileUpload className="reserve-step4-plate-upload"
                               onFileChange={(file) => handleFileChange(file, 'platePhoto')} // Triggering file change for plate photo
                               label="Upload Plate Photo"
                               required
@@ -599,12 +620,13 @@ if (formData.vehicleType.toLowerCase() === 'car') {
                       </div>
                       <p>{errorMessage}</p> {/* Displaying error message if necessary */}
                   </div>
-              </div>
+              </div></div>
           );
       case 5:
         return (
           <div className="reserve-step5">
                 {/* <div className="review-page"> */}
+                <div className={`step-content ${showAnimation ? 'show' : ''}`}>    
       <div className="review-header">
         <h2 className="reserve-step5-heading">Almost Done!</h2>
         <p className="reserve-step5-text">Take a moment to review your reservation details. When you're ready, click 'Submit' to complete your booking.</p>
@@ -652,7 +674,8 @@ if (formData.vehicleType.toLowerCase() === 'car') {
           </div>
           </div>
       </div>
-    </div>
+      </div></div>
+   
         );
         
       default:

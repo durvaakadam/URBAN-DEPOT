@@ -46,7 +46,9 @@ header p {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.icon {
+.icon location-icon,
+.icon phone-icon,
+.icon email-icon{
     font-size: 3rem;
 }
 

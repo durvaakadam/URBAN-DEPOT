@@ -12,3 +12,10 @@
     border-radius: 50%; /* Round button */
   }
   
+
+.Toastify__toast-container{
+  position: fixed;
+    top: 15vh; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+    z-index: 1050;
+}

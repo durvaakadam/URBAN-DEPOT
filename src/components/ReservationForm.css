@@ -1,10 +1,12 @@
 .reserve-page{
+  
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color:#ddd;
+    background-color:rgb(243, 237, 237);
     height: 80vh;
     width: 100%;
+    
 }
 
 /* step1 starts */
@@ -12,10 +14,11 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    top: 25vh;
+    top: 20vh;
     gap: 2vh;
     width: 50%;
     margin-left: 20vh;
+    color: #000000;
 }
 #step{
   font-size: 2.8vh;
@@ -46,7 +49,7 @@
   padding: 2rem;
   max-width: 500px;
   /* margin: 2rem auto; */
-  margin-top: -180px;
+  margin-top: -23vh;
   top: 5vh;
   margin-left: 120vh;
   font-family: Arial, sans-serif;
@@ -161,6 +164,52 @@
   opacity: 1;
 }
 
+/* adding animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly below */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End in original position */
+  }
+}
+.reserve-step1-sidetext,
+.reserve-step1-form,
+.reserve-step1-name,
+.reserve-step1-email,
+.reserve-step1-contact {
+  opacity: 0;
+  animation: fadeInUp 0.6s ease forwards; 
+}
+.reserve-step1-sidetext{
+  animation-delay: 0.1s;
+}
+.reserve-step1-name {
+  animation-delay: 0.1s;
+}
+
+.reserve-step1-email {
+  animation-delay: 0.2s;
+}
+
+.reserve-step1-contact {
+  animation-delay: 0.3s;
+}
+
+/* Initial state: hidden */
+.step-content {
+  /* opacity: 1; */
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+/* Show class for animation effect */
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* step1 ends */
 
@@ -287,6 +336,37 @@
 .time-select option {
   color: #333;
 }
+
+/* adding animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly below */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0); /* End in original position */
+  }
+}
+.reserve-step2-sidetext,
+.reserve-step2-form,
+.reserve-step2-date,
+.reserve-step2-time
+{
+  opacity: 0;
+  animation: fadeInUp 0.7s ease forwards; 
+}
+.reserve-step1-sidetext{
+  animation-delay: 0.1s;
+}
+.reserve-step1-date {
+  animation-delay: 0.3s;
+}
+
+.reserve-step1-time {
+  animation-delay: 0.4s;
+}
+
 
 /* step2 ends */
 
@@ -450,13 +530,13 @@ gap: 5vh;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   padding: 2rem;
-  width: 100vh;
+  width: 65vh;
   height: 60vh;
   margin-top: -20vh;
   gap: 2vh;
   margin-left: 100vh;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
  
 }
 
@@ -466,24 +546,14 @@ gap: 5vh;
   align-items: center;
 }
 
-.reserve-step4-custom-file-upload {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  background-color: #f7f7f7;
-  border: 2px dashed #ccc;
-  border-radius: 6px;
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  color: #333;
-  cursor: pointer;
-  transition: background-color 0.3s, border-color 0.3s;
-  height: 20vh;
-  width: 60vh;
+.reserve-step4-file-upload-container label{
+  margin-left: -15vh;
 }
+
 .upload-photos-title {
     font-size: 1.5rem; /* Adjust title size as needed */
     margin-bottom: 1rem; /* Space below the title */
+    margin-left: 5vh;
 }
 
 .reserve-step4-custom-file-upload:hover {
@@ -526,10 +596,11 @@ gap: 5vh;
 
 /* Header styling */
 .review-header {
-  text-align: center; /* Center header text */
-  margin: 0 0 2rem 2; /* Remove left margin */
-  padding: 2rem 0; /* Add top and bottom padding */
-  border-radius: 8px; /* Rounded corners */
+  position: relative;
+  left: 40vh;
+  margin: 0vh 0vh 2vh 10vh;
+  padding-top: 4vh;
+  max-width: 1000px;
 }
 
 .reserve-step5-heading {
@@ -537,10 +608,11 @@ gap: 5vh;
   color: #333;
   font-weight: bold;
   margin-bottom: 0.5rem;
+  
 }
 
 .reserve-step5-text {
-  font-size: 1.2rem; /* Increase text size */
+  font-size: 1rem; /* Increase text size */
   color: #666;
   font-weight: 400;
 }
@@ -611,6 +683,7 @@ gap: 5vh;
 
 /* Submit button styling */
 .reserve-page-submit-button {
+  position: relative;
   background-color: #ff385c; /* Airbnb pink */
   color: #fff;
   font-size: 1rem;

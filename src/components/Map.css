@@ -19,7 +19,7 @@
     position: absolute;
     top: 5vh;
     background: white;
-    padding: 20px; 
+    padding: 15px; 
     border: 1px solid #ccc;
     border-radius: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -34,7 +34,7 @@
 
 .map-search h5{
     font-size: 3.8vh;
-    margin-top: 0; /* Remove top margin */
+    margin-top: 0vh; /* Remove top margin */
     font-weight: bold;
 }
 
@@ -139,14 +139,14 @@
 
 .map-search button {
     background-color: #000000;
-    color: gold;
+    color: #f4c2c2;
     cursor: pointer;
     margin-block: inherit;
     transition: background-color 0.3s ease; /* Smooth transition for hover */
 }
 
 .map-search button:hover {
-    background-color: #c1b532;
+    background-color:#f4c2c2;
     color: #000000;
 }
 
@@ -213,6 +213,7 @@
 .map-popup-butt button {
     flex: 1; /* Allow buttons to stretch evenly */
     max-height: 50px; /* Adjusted height for buttons */
+    margin-left: -5vh;
     border: 1px solid #ccc;
     border-radius: 5px;
     background-color: #4CAF50; /* Consistent button color */
@@ -317,6 +318,24 @@
     color: #4285f4;
 }
 
+.direction-box .directions-box-directions.show::-webkit-scrollbar {
+    width: 12px !important;
+    height: 12px !important;
+}
+.direction-box .directions-box-directions.show::-webkit-scrollbar-track {
+    background: #f4f4f4 !important;
+    border-radius: 10px !important;
+}
+
+.direction-box .directions-box-directions.show::-webkit-scrollbar-thumb {
+    background: #d7cece !important;
+    border-radius: 10px !important;
+    border: 3px solid #f4f4f4 !important;
+}
+
+.direction-box .directions-box-directions.show::-webkit-scrollbar-thumb:hover {
+    background: #b0b0b0 !important;
+}
 .direction-details {
     display: flex;
     flex-direction: column;
