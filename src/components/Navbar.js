@@ -73,6 +73,7 @@ const Navbar = ({ userEmail }) => {
       {userEmail && (
         <div className="urban-navbar-user-info">
           <span className="urban-navbar-user-email">{userEmail}</span> 
+          
         </div>
       )}
     </nav>
